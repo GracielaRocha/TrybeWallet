@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { amountExpense, fetchCurrencies } from '../actions';
 import getCurrency from './API';
+import Table from './Table';
 
 class Form extends React.Component {
   state = {
@@ -129,6 +130,7 @@ class Form extends React.Component {
         >
           Adicionar despesa
         </button>
+        <Table />
       </form>
     );
   }
