@@ -22,7 +22,7 @@ export const requestCurrencies = () => ({
 
 export const getCurrenciesSuccess = (payload) => ({
   type: GET_CURRENCIES_SUCCESS,
-  payload,
+  payload: Object.keys(payload),
 });
 
 export const getCurrenciesError = (payload) => ({

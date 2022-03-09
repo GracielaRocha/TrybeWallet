@@ -46,6 +46,7 @@ class Form extends React.Component {
   render() {
     const { value, description, currency, tag, method } = this.state;
     const { handleChange, handleClick } = this;
+    const { currenciesList } = this.props;
     return (
       <form>
         <label htmlFor="value">
@@ -79,9 +80,17 @@ class Form extends React.Component {
             value={ currency }
             onChange={ handleChange }
           >
-            <option value="USD">USD</option>
-            <option value="EUR">EUR</option>
-            <option value="EUR">EUR</option>
+            {
+              currenciesList.filter((item) => item !== 'USDT').map((item) => (
+                <option
+                  data-testid={ item }
+                  key={ item }
+                  value={ item }
+                >
+                  { item }
+                </option>
+              ))
+            }
           </select>
         </label>
         <label htmlFor="method">
@@ -128,10 +137,16 @@ class Form extends React.Component {
 Form.propTypes = {
   expense: PropTypes.func.isRequired,
   currencies: PropTypes.func.isRequired,
+  currenciesList: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   expense: (value) => dispatch(amountExpense(value)),
   currencies: (value) => dispatch(fetchCurrencies(value)),
 });
-export default connect(null, mapDispatchToProps)(Form);
+
+const mapStateToProps = (state) => ({
+  currenciesList: state.wallet.currencies,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
