@@ -20,7 +20,7 @@ class Wallet extends React.Component {
               <span data-testid="total-field">
                 { expensesList
                   .reduce((acc, item) => acc + (item.value
-                  * item.exchangeRates[item.currency].ask), 0).toFixed(2)}
+                  * item.exchangeRates[item.currency].ask), 0)}
               </span>
             </p>
             <p data-testid="header-currency-field">BRL</p>
