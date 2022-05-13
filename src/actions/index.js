@@ -5,9 +5,15 @@ export const TOTAL_EXPENSE = 'AMOUNT_EXPENSE';
 export const REQUEST_CURRENCIES = 'REQUEST_CURRENCIES';
 export const GET_CURRENCIES_SUCCESS = 'GET_CURRENCIES_SUCCESS';
 export const GET_CURRENCIES_ERROR = 'GET_CURRENCIES_ERROR';
+export const EXPENSE_DELETE = 'EXPENSE_DELETE';
 
 export const userEmail = (payload) => ({
   type: USER_EMAIL,
+  payload,
+});
+
+export const expenseDelete = (payload) => ({
+  type: EXPENSE_DELETE,
   payload,
 });
 

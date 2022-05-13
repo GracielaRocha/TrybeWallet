@@ -1,11 +1,12 @@
 import { TOTAL_EXPENSE, REQUEST_CURRENCIES,
-  GET_CURRENCIES_SUCCESS, GET_CURRENCIES_ERROR } from '../actions';
+  GET_CURRENCIES_SUCCESS, GET_CURRENCIES_ERROR, EXPENSE_DELETE } from '../actions';
 
 const INITIAL_STATE = {
   currencies: [],
   expenses: [],
   loading: false,
   errorMessage: '',
+  expenseDelete: [],
 };
 
 const wallet = (state = INITIAL_STATE, action) => {
@@ -13,6 +14,9 @@ const wallet = (state = INITIAL_STATE, action) => {
   case TOTAL_EXPENSE:
     return { ...state,
       expenses: state.expenses.concat(action.payload) };
+  case EXPENSE_DELETE:
+    return { ...state,
+      expenses: state.expenseDelete.concat(action.payload) };
   case REQUEST_CURRENCIES:
     return { ...state,
       loading: true };

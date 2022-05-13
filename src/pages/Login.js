@@ -48,33 +48,41 @@ class Login extends React.Component {
       return <Redirect to="/carteira" />;
     }
     return (
-      <div>
-        <h1>TRYBE</h1>
-        <section>
-          <input
-            name="email"
-            type="email"
-            onChange={ handleChange }
-            placeholder="Digite seu email"
-            data-testid="email-input"
-          />
-          <input
-            name="senha"
-            type="password"
-            onChange={ handleChange }
-            placeholder="Digite sua senha"
-            data-testid="password-input"
-          />
-        </section>
-        <section>
-          <button
-            type="button"
-            onClick={ handleClick }
-            disabled={ disabled }
-          >
-            Entrar
-          </button>
-        </section>
+      <div className="container">
+        <div className="login-container">
+          <div className="title-container">
+            <h1>Trybe</h1>
+            <h1>Wallet</h1>
+          </div>
+          <section className="login-form">
+            <input
+              className="input-login"
+              name="email"
+              type="email"
+              onChange={ handleChange }
+              placeholder="Digite seu email"
+              data-testid="email-input"
+            />
+            <input
+              className="input-login"
+              name="senha"
+              type="password"
+              onChange={ handleChange }
+              placeholder="Digite sua senha"
+              data-testid="password-input"
+            />
+          </section>
+          <section>
+            <button
+              className="login-btn"
+              type="button"
+              onClick={ handleClick }
+              disabled={ disabled }
+            >
+              Entrar
+            </button>
+          </section>
+        </div>
       </div>
     );
   }

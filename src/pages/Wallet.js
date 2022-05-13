@@ -7,23 +7,30 @@ import Form from '../components/Form';
 class Wallet extends React.Component {
   render() {
     const { userEmail, expensesList } = this.props;
-    console.log(expensesList);
+    // console.log(expensesList);
 
     return (
-      <div>
-        TrybeWallet
+      <div className="wallet-container">
         <header>
-          <section>
-            <h3 data-testid="email-field">{ userEmail }</h3>
-            <p>
+          <h1 className="wallet-title">
+            Trybe Wallet
+          </h1>
+          <section className="wallet-email">
+            <div className="wallet-spence">
               Despesa Total: R$
               <span data-testid="total-field">
                 { expensesList
                   .reduce((acc, item) => acc + (item.value
-                  * item.exchangeRates[item.currency].ask), 0)}
+                    * item.exchangeRates[item.currency].ask), 0)}
               </span>
-            </p>
-            <p data-testid="header-currency-field">BRL</p>
+              <p
+                className="brl"
+                data-testid="header-currency-field"
+              >
+                BRL
+              </p>
+            </div>
+            <h3 data-testid="email-field">{ userEmail }</h3>
           </section>
         </header>
         <Form />
